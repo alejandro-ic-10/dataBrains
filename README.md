@@ -1,10 +1,8 @@
 # Mejor Precio de Auto
 
-## Facultad de Ingeniería UNAM
-
-## Semestre 2026-1
-
-## Ciencia de Datos en la Toma de Decisiones de las Organizaciones
+- Facultad de Ingeniería UNAM
+- Semestre 2026-1
+- Ciencia de Datos en la Toma de Decisiones de las Organizaciones
 
 ### Equipo Data Brains
 
