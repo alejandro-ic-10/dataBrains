@@ -54,9 +54,23 @@ El notebook **`DataBrains_Precio_Coches_Usados.ipynb`** desarrolla un modelo de 
 - **Jupyter Notebook**
 
 
-
 ## Resultados Esperados
 
 - Un modelo capaz de **predecir el valor de un coche usado** con buena precisión.  
 - Comprensión de los factores que **más impactan en el precio**, como año, kilometraje, marca y condición.  
 - Base para construir una **herramienta de estimación automática** útil para el mercado automotriz.
+
+
+## EJECUCIÓN DE LA APP:
+Para poder ejecutar la aplicación, es necesario realizar los siguientes pasos:
+1. Previamente tener instalado python (última versión), instalar si es necesario las bibliotecas fastapi, uvicorn, scikit-learn (version 1.6.1) con los comandos pip install <nombre_biblioteca>
+3. Descargar este repositorio en formato .zip y descomprimirlo.
+4. Dirigirse a la carpeta AppFinal.
+5. Dentro de la carpeta, descomprimir el archivo ddf4_limpio.zip en esa misma ruta (el archivo ya se encuentra dentro de esta).
+6. Descargar el modelo ML entrenado de la siguiente liga https://drive.google.com/file/d/1iqhuO5xGmInz4Xyq3ujxzKZS1XK4jWML/view?usp=sharing
+7. Mover dicho archivo a la carpeta AppFinal previamente descargada (no renombrar dicho archivo)
+8. Abrir una terminal en la ruta de la carpeta AppFinal y ejecutar el siguiente comando: python -m http.server 5500
+9. Abrir otra terminal nueva en la ruta anterior y ejecutar el siguinte comando: python -m uvicorn Main:app --reload
+10. En tu navegador de preferencia, abrir la siguiente dirección: http://localhost:5500/PaginaWEB/
+11. Una vez dentro de la página ya es posible usarla.
+12. Para terminar la ejecución, cerrar la página, dirigirse a una de las terminales y presionar las teclas CTRL+C, repetir el mismo proceso para la otra terminal. 
