@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Estimador de Precio de Vehículos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fuente opcional, puedes quitarla si quieres 100% local -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #dbeafe;
+            --bg: #020617;
+            --card-bg: #020617;
+            --accent: #22c55e;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --border: #1f2937;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        /* ===== NAV SUPERIOR ===== */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 32px;
+            backdrop-filter: blur(12px);
+            background: linear-gradient(to bottom,
+                    rgba(15, 23, 42, 0.95),
+                    rgba(15, 23, 42, 0.75),
+                    transparent);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            color: white;
+        }
+
+        .brand-text-main {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .brand-text-sub {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            padding: 6px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.15s, color 0.15s, transform 0.1s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn-primary {
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-btn-primary:hover {
+            filter: brightness(1.05);
+        }
+
+        @media (max-width: 700px) {
+            .top-nav {
+                padding-inline: 16px;
+            }
+
+            .brand-text-main {
+                font-size: 0.95rem;
+            }
+
+            .brand-text-sub {
+                display: none;
+            }
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url("https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1600");
+            background-size: cover;
+            background-position: center;
+            transform: translateY(0) scale(1.1);
+            filter: saturate(1.1);
+            z-index: -2;
+            will-change: transform;
+        }
+
+        .hero-overlay-lines {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(to right,
+                    rgba(148, 163, 184, 0.15) 1px,
+                    transparent 1px);
+            background-size: 80px 100%;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            padding: 80px 24px 40px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.1fr);
+            gap: 32px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                padding-top: 96px;
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.1rem, 3.4vw, 3rem);
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+            max-width: 480px;
+            margin-bottom: 18px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            font-size: 0.75rem;
+            color: #cbd5f5;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .hero-btn-main {
+            border: none;
+            border-radius: 999px;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
+        }
+
+        .hero-btn-main:hover {
+            filter: brightness(1.06);
+            transform: translateY(-1px);
+        }
+
+        .hero-btn-ghost {
+            background: transparent;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: var(--muted);
+            padding: 9px 14px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .metric-label {
+            color: var(--muted);
+            font-size: 0.7rem;
+        }
+
+        .metric-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .hero-mini-card {
+            background: rgba(15, 23, 42, 0.9);
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            padding: 14px;
+            max-width: 320px;
+            margin-left: auto;
+        }
+
+        .hero-mini-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .hero-mini-text {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        .hero-mini-tag {
+            font-size: 0.7rem;
+            color: #a5b4fc;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: var(--muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .scroll-indicator span {
+            width: 2px;
+            height: 18px;
+            border-radius: 999px;
+            background: rgba(148, 163, 184, 0.7);
+            animation: scrollPulse 1.2s infinite alternate;
+        }
+
+        @keyframes scrollPulse {
+            from {
+                transform: translateY(0);
+                opacity: 0.6;
+            }
+
+            to {
+                transform: translateY(6px);
+                opacity: 1;
+            }
+        }
+
+        /* ===== CONTENIDO DESPUÉS DEL HERO ===== */
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding-inline: 14px;
+            }
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 16px 18px;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+            border-color: rgba(37, 99, 235, 0.6);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 7px 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: #020617;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, box-shadow 0.1s, filter 0.1s;
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.05);
+            box-shadow: 0 14px 30px rgba(37, 99, 235, 0.6);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .result-box {
+            margin-top: 10px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: radial-gradient(circle at top left, rgba(45, 212, 191, 0.18), rgba(15, 23, 42, 0.95));
+            border: 1px solid rgba(45, 212, 191, 0.5);
+        }
+
+        .alert-error {
+            margin-top: 10px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: rgba(248, 113, 113, 0.15);
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            color: #fecaca;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            padding: 16px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--muted);
+            border-top: 1px solid rgba(15, 23, 42, 0.9);
+            background: radial-gradient(circle at top, #020617, #020617);
+        }
+
+        /* ===== AJUSTES RESPONSIVE EXTRA PARA MÓVILES ===== */
+
+        @media (max-width: 600px) {
+            .hero {
+                height: auto;
+                min-height: 520px;
+                padding-bottom: 40px;
+            }
+
+            .hero-content {
+                padding-top: 110px;
+                padding-inline: 16px;
+            }
+
+            .hero-title {
+                font-size: 1.7rem;
+            }
+
+            .hero-mini-card {
+                margin: 16px auto 0;
+                width: 100%;
+            }
+
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .top-nav {
+                padding-inline: 12px;
+            }
+
+            .nav-links {
+                gap: 4px;
+            }
+
+            .nav-btn {
+                padding-inline: 8px;
+                font-size: 0.75rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV FIJA -->
+    <header class="top-nav">
+        <div class="brand">
+            <div class="logo">CV</div>
+            <div>
+                <div class="brand-text-main">Costo Vehículos · API</div>
+                <div class="brand-text-sub">Proyecto escolar – ML + FastAPI</div>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <button class="nav-btn" data-scroll="#hero">Inicio</button>
+            <button class="nav-btn" data-scroll="#overview">Sobre el proyecto</button>
+            <button class="nav-btn nav-btn-primary" data-scroll="#calculator">Ir a la calculadora</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay-lines"></div>
+
+        <div class="hero-content">
+            <div>
+                <h1 class="hero-title">
+                    Estima el precio de un vehículo usado <br />
+                    en segundos.
+                </h1>
+                <p class="hero-subtitle">
+                    Ingresa algunos datos clave del auto y un modelo de Machine Learning
+                    entrenado con miles de registros te dará una estimación de su precio.
+                </p>
+
+                <div class="hero-badges">
+                    <span class="badge">FastAPI · Python</span>
+                    <span class="badge">RandomForestRegressor</span>
+                    <span class="badge">Modelo entrenado (.joblib)</span>
+                    <span class="badge">Relleno con medianas del dataset</span>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="hero-btn-main" data-scroll="#calculator">
+                        Calcular precio ahora →
+                    </button>
+                    <button class="hero-btn-ghost" data-scroll="#overview">
+                        Ver cómo funciona el modelo
+                    </button>
+                </div>
+
+                <div class="hero-metrics">
+                    <div>
+                        <div class="metric-label">Año de ejemplo</div>
+                        <div class="metric-value">2016</div>
+                    </div>
+                    <div>
+                        <div class="metric-label">Registros de entrenamiento</div>
+                        <div class="metric-value">+N</div>
+                    </div>
+                    <div>
+                        <div class="metric-label">Modelo</div>
+                        <div class="metric-value">Random Forest</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-mini-card">
+                <div class="hero-mini-title">Demo del sistema</div>
+                <div class="hero-mini-text">
+                    Esta interfaz web envía tus datos a una API en Python,
+                    que arma el vector de features, rellena valores faltantes
+                    y consulta el modelo entrenado.
+                </div>
+                <div class="hero-mini-tag">Scroll down para ver la calculadora ↓</div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div>Scroll</div>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: SOBRE EL PROYECTO -->
+    <section class="section" id="overview">
+        <div class="two-columns">
+            <div class="card">
+                <div class="card-title">
+                    ¿Qué hace este proyecto?
+                    <span class="badge">ML aplicado</span>
+                </div>
+                <p class="hint" style="margin-bottom:10px;">
+                    El objetivo es construir un estimador de precios de vehículos usados integrando:
+                </p>
+                <ul class="hint" style="padding-left:18px; margin-top:0;">
+                    <li>Un dataset real de coches (limpieza y preparación en Python).</li>
+                    <li>Entrenamiento de un modelo <strong>Random Forest</strong> para predecir el precio.</li>
+                    <li>Guardado del modelo en un archivo <code>.joblib</code>.</li>
+                    <li>Despliegue de una <strong>API con FastAPI</strong> que expone el endpoint <code>/predict</code>.
+                    </li>
+                    <li>Esta página web en JavaScript que consume la API y muestra el resultado.</li>
+                </ul>
+                <div class="tag-list">
+                    <span class="tag">Python</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">scikit-learn</span>
+                    <span class="tag">Joblib</span>
+                    <span class="tag">REST API</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    ¿Cómo se manejan los datos faltantes?
+                    <span class="badge">Median Imputation</span>
+                </div>
+                <p class="hint">
+                    Para no obligar al usuario a capturar todas las características técnicas
+                    del vehículo, varios campos numéricos se consideran <strong>opcionales</strong>.
+                </p>
+                <p class="hint">
+                    Cuando se envía la petición a la API, si uno de esos valores llega como
+                    <code>null</code>, el backend rellena ese campo usando la
+                    <strong>mediana</strong> de esa columna en el dataset original
+                    (<code>ddf4_limpio.csv</code>).
+                </p>
+                <p class="hint">
+                    De esta forma, el modelo sigue funcionando incluso con información incompleta,
+                    manteniendo la entrada coherente con los datos de entrenamiento.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CALCULADORA -->
+    <section class="section" id="calculator">
+        <div class="two-columns">
+            <!-- Columna izquierda: formulario -->
+            <div class="card">
+                <div class="card-title">
+                    Calculadora de precio
+                    <span class="badge">Consulta a la API</span>
+                </div>
+                <p class="hint">
+                    Completa los campos obligatorios. Los campos opcionales pueden dejarse en blanco;
+                    el backend los rellenará con valores de mediana del dataset.
+                </p>
+
+                <div class="grid-2" style="margin-top:10px;">
+                    <div class="field">
+                        <label>Marca *</label>
+                        <select id="makeSelect">
+                            <option value="">Selecciona marca</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Modelo *</label>
+                        <select id="modelSelect" disabled>
+                            <option value="">Selecciona modelo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Carrocería *</label>
+                        <select id="bodyTypeSelect" disabled>
+                            <option value="">Selecciona carrocería</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Año (1980–2025) *</label>
+                        <input type="number" id="yearInput" min="1980" max="2025" />
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Kilometraje (0–500,000 km) *</label>
+                        <input type="number" id="mileageInput" min="0" max="500000" />
+                    </div>
+                    <div class="field">
+                        <label>Combustible *</label>
+                        <select id="fuelTypeSelect">
+                            <option value="">Selecciona</option>
+                            <option value="Gasoline">Gasolina</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="Hybrid">Híbrido</option>
+                            <option value="Electric">Eléctrico</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Motor *</label>
+                        <select id="engineConfigSelect">
+                            <option value="">Selecciona</option>
+                            <option value="I4">I4</option>
+                            <option value="I6">I6</option>
+                            <option value="V8">V8</option>
+                            <option value="H4">H4</option>
+                            <option value="I3">I3</option>
+                            <option value="I5">I5</option>
+                            <option value="H6">H6</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Tracción *</label>
+                        <select id="wheelSystemSelect">
+                            <option value="">Selecciona</option>
+                            <option value="FWD">FWD</option>
+                            <option value="AWD">AWD</option>
+                            <option value="4WD">4WD</option>
+                            <option value="RWD">RWD</option>
+                            <option value="4X2">4X2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h4>Datos opcionales</h4>
+
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Caballos (40–1000) – opcional</label>
+                        <input type="number" id="horsepowerInput" min="40" max="1000" />
+                    </div>
+                    <div></div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="field">
+                        <label>Consumo ciudad (3–80 mpg)</label>
+                        <input type="number" id="cityFuelInput" min="3" max="80" />
+                    </div>
+                    <div class="field">
+                        <label>Consumo carretera (3–80 mpg)</label>
+                        <input type="number" id="hwyFuelInput" min="3" max="80" />
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div></div>
+                    <div class="field">
+                        <label>¿Nuevo?</label>
+                        <select id="isNewSelect">
+                            <option value="">No especificar</option>
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button id="predictBtn" class="btn-primary">Calcular precio estimado</button>
+
+                <div id="resultContainer"></div>
+            </div>
+
+            <!-- Columna derecha: estado API + debug -->
+            <div class="card">
+                <div class="card-title">
+                    Estado de la API
+                    <span class="badge">Local</span>
+                </div>
+                <p id="apiStatus" class="hint">Verificando conexión…</p>
+
+                <hr style="border-color:#111827;margin:12px 0;">
+
+                <div class="card-title" style="margin-top:4px;">
+                    Última consulta
+                    <span class="badge">Debug</span>
+                </div>
+                <p class="hint">
+                    Aquí puedes ver el JSON enviado a la API (<em>raw_input</em>) y las features finales
+                    usadas por el modelo (<em>used_features</em>).
+                </p>
+                <div id="debugContainer" class="hint">
+                    Aún no has realizado ninguna consulta.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Proyecto académico · Desarrollado por [Tu nombre] · [Tu escuela/curso]
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

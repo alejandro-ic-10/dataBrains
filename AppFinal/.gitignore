@@ -1,0 +1,17 @@
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+
+# Entornos virtuales
+venv/
+env/
+.env
+
+# Archivos de sistema operativo (basura)
+.DS_Store
+
+# Archivos de datos grandes 
+*.csv
+
+#Modelo ML
+*.joblib

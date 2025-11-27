@@ -1,0 +1,780 @@
+{
+  "1500": [
+    "Pickup Truck"
+  ],
+  "2 Series": [
+    "Coupe",
+    "Sedan",
+    "Convertible"
+  ],
+  "200": [
+    "Sedan",
+    "Convertible"
+  ],
+  "2500": [
+    "Pickup Truck"
+  ],
+  "3 Series": [
+    "Sedan",
+    "Coupe",
+    "Convertible",
+    "Wagon"
+  ],
+  "300": [
+    "Sedan"
+  ],
+  "3500": [
+    "Pickup Truck"
+  ],
+  "4 Series": [
+    "Sedan",
+    "Convertible",
+    "Coupe"
+  ],
+  "4Runner": [
+    "SUV / Crossover"
+  ],
+  "5 Series": [
+    "Sedan",
+    "Wagon"
+  ],
+  "7 Series": [
+    "Sedan"
+  ],
+  "A3": [
+    "Sedan",
+    "Wagon",
+    "Convertible"
+  ],
+  "A4": [
+    "Sedan",
+    "Convertible"
+  ],
+  "A6": [
+    "Sedan",
+    "Wagon"
+  ],
+  "ATS": [
+    "Sedan"
+  ],
+  "Acadia": [
+    "SUV / Crossover"
+  ],
+  "Accent": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "Accord": [
+    "Sedan"
+  ],
+  "Accord Hybrid": [
+    "Sedan"
+  ],
+  "Altima": [
+    "Sedan"
+  ],
+  "Armada": [
+    "SUV / Crossover"
+  ],
+  "Ascent": [
+    "SUV / Crossover"
+  ],
+  "Atlas": [
+    "SUV / Crossover"
+  ],
+  "Atlas Cross Sport": [
+    "SUV / Crossover"
+  ],
+  "Avalon": [
+    "Sedan"
+  ],
+  "Aviator": [
+    "SUV / Crossover"
+  ],
+  "Blazer": [
+    "SUV / Crossover"
+  ],
+  "Bolt EV": [
+    "Wagon",
+    "Hatchback"
+  ],
+  "C-Class": [
+    "Sedan",
+    "Convertible",
+    "Coupe",
+    "Wagon"
+  ],
+  "C-HR": [
+    "SUV / Crossover"
+  ],
+  "CLA-Class": [
+    "Coupe",
+    "Sedan"
+  ],
+  "CR-V": [
+    "SUV / Crossover"
+  ],
+  "CR-V Hybrid": [
+    "SUV / Crossover"
+  ],
+  "CT5": [
+    "Sedan"
+  ],
+  "CTS": [
+    "Sedan"
+  ],
+  "CX-3": [
+    "SUV / Crossover"
+  ],
+  "CX-30": [
+    "SUV / Crossover"
+  ],
+  "CX-5": [
+    "SUV / Crossover"
+  ],
+  "CX-9": [
+    "SUV / Crossover"
+  ],
+  "Camaro": [
+    "Coupe",
+    "Convertible"
+  ],
+  "Camry": [
+    "Sedan"
+  ],
+  "Camry Hybrid": [
+    "Sedan"
+  ],
+  "Canyon": [
+    "Pickup Truck"
+  ],
+  "Cayenne": [
+    "SUV / Crossover",
+    "Coupe"
+  ],
+  "Challenger": [
+    "Coupe",
+    "Convertible"
+  ],
+  "Charger": [
+    "Sedan"
+  ],
+  "Cherokee": [
+    "SUV / Crossover"
+  ],
+  "Civic": [
+    "Sedan",
+    "Coupe",
+    "Hatchback"
+  ],
+  "Civic Coupe": [
+    "Coupe"
+  ],
+  "Civic Hatchback": [
+    "Hatchback"
+  ],
+  "Colorado": [
+    "Pickup Truck"
+  ],
+  "Compass": [
+    "SUV / Crossover",
+    "Pickup Truck"
+  ],
+  "Continental": [
+    "Sedan"
+  ],
+  "Cooper": [
+    "Hatchback",
+    "Convertible",
+    "Coupe"
+  ],
+  "Corolla": [
+    "Sedan"
+  ],
+  "Corolla Hybrid": [
+    "Sedan"
+  ],
+  "Corsair": [
+    "SUV / Crossover"
+  ],
+  "Corvette": [
+    "Coupe",
+    "Convertible"
+  ],
+  "Countryman": [
+    "SUV / Crossover"
+  ],
+  "Crosstrek": [
+    "SUV / Crossover"
+  ],
+  "Cruze": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "Discovery Sport": [
+    "SUV / Crossover"
+  ],
+  "Durango": [
+    "SUV / Crossover"
+  ],
+  "E-Class": [
+    "Sedan",
+    "Convertible",
+    "Coupe",
+    "Wagon"
+  ],
+  "ES": [
+    "Sedan"
+  ],
+  "ES 350": [
+    "Sedan"
+  ],
+  "Eclipse Cross": [
+    "SUV / Crossover"
+  ],
+  "EcoSport": [
+    "SUV / Crossover"
+  ],
+  "Edge": [
+    "SUV / Crossover"
+  ],
+  "Elantra": [
+    "Sedan"
+  ],
+  "Elantra GT": [
+    "Hatchback"
+  ],
+  "Enclave": [
+    "SUV / Crossover"
+  ],
+  "Encore": [
+    "SUV / Crossover"
+  ],
+  "Encore GX": [
+    "SUV / Crossover"
+  ],
+  "Envision": [
+    "SUV / Crossover"
+  ],
+  "Equinox": [
+    "SUV / Crossover"
+  ],
+  "Escalade": [
+    "SUV / Crossover"
+  ],
+  "Escalade ESV": [
+    "SUV / Crossover"
+  ],
+  "Escape": [
+    "SUV / Crossover"
+  ],
+  "Escape Hybrid": [
+    "SUV / Crossover"
+  ],
+  "Expedition": [
+    "SUV / Crossover"
+  ],
+  "Explorer": [
+    "SUV / Crossover"
+  ],
+  "Express": [
+    "Van"
+  ],
+  "Express Cargo": [
+    "Van"
+  ],
+  "F-150": [
+    "Pickup Truck"
+  ],
+  "F-250 Super Duty": [
+    "Pickup Truck"
+  ],
+  "F-350 Super Duty": [
+    "Pickup Truck"
+  ],
+  "F-350 Super Duty Chassis": [
+    "Pickup Truck"
+  ],
+  "F-PACE": [
+    "SUV / Crossover"
+  ],
+  "Fiesta": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "Fit": [
+    "Hatchback"
+  ],
+  "Flex": [
+    "SUV / Crossover"
+  ],
+  "Focus": [
+    "Sedan",
+    "Hatchback",
+    "Wagon",
+    "Coupe"
+  ],
+  "Forester": [
+    "SUV / Crossover"
+  ],
+  "Forte": [
+    "Sedan"
+  ],
+  "Frontier": [
+    "Pickup Truck"
+  ],
+  "Fusion": [
+    "Sedan"
+  ],
+  "Fusion Hybrid": [
+    "Sedan"
+  ],
+  "GLA-Class": [
+    "SUV / Crossover"
+  ],
+  "GLB-Class": [
+    "SUV / Crossover"
+  ],
+  "GLC-Class": [
+    "SUV / Crossover",
+    "Coupe"
+  ],
+  "GLE-Class": [
+    "SUV / Crossover",
+    "Coupe"
+  ],
+  "GLS-Class": [
+    "SUV / Crossover"
+  ],
+  "GTI": [
+    "Hatchback"
+  ],
+  "GX": [
+    "SUV / Crossover"
+  ],
+  "Giulia": [
+    "Sedan"
+  ],
+  "Gladiator": [
+    "Pickup Truck"
+  ],
+  "Grand Caravan": [
+    "Minivan"
+  ],
+  "Grand Cherokee": [
+    "SUV / Crossover"
+  ],
+  "HR-V": [
+    "SUV / Crossover"
+  ],
+  "Highlander": [
+    "SUV / Crossover"
+  ],
+  "Highlander Hybrid": [
+    "SUV / Crossover"
+  ],
+  "ILX": [
+    "Sedan"
+  ],
+  "IS": [
+    "Sedan",
+    "Convertible",
+    "Wagon"
+  ],
+  "Impala": [
+    "Sedan"
+  ],
+  "Impreza": [
+    "Sedan",
+    "Hatchback",
+    "Wagon"
+  ],
+  "Insight": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "Ioniq Hybrid": [
+    "Hatchback"
+  ],
+  "Jetta": [
+    "Sedan",
+    "Wagon"
+  ],
+  "Journey": [
+    "SUV / Crossover"
+  ],
+  "K5": [
+    "Sedan"
+  ],
+  "Kicks": [
+    "SUV / Crossover"
+  ],
+  "Kona": [
+    "SUV / Crossover"
+  ],
+  "LEAF": [
+    "Hatchback"
+  ],
+  "LaCrosse": [
+    "Sedan"
+  ],
+  "Legacy": [
+    "Sedan",
+    "Wagon"
+  ],
+  "MAZDA3": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "MAZDA6": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "MDX": [
+    "SUV / Crossover"
+  ],
+  "MKC": [
+    "SUV / Crossover"
+  ],
+  "MKX": [
+    "SUV / Crossover"
+  ],
+  "MKZ": [
+    "Sedan"
+  ],
+  "Macan": [
+    "SUV / Crossover"
+  ],
+  "Malibu": [
+    "Sedan"
+  ],
+  "Maxima": [
+    "Sedan"
+  ],
+  "Mirage": [
+    "Hatchback",
+    "Coupe",
+    "Sedan"
+  ],
+  "Mirage G4": [
+    "Sedan"
+  ],
+  "Murano": [
+    "SUV / Crossover"
+  ],
+  "Mustang": [
+    "Coupe",
+    "Convertible",
+    "Hatchback"
+  ],
+  "NX": [
+    "SUV / Crossover"
+  ],
+  "NX 200t": [
+    "SUV / Crossover"
+  ],
+  "Nautilus": [
+    "SUV / Crossover"
+  ],
+  "Navigator": [
+    "SUV / Crossover"
+  ],
+  "Niro": [
+    "SUV / Crossover"
+  ],
+  "Odyssey": [
+    "Minivan"
+  ],
+  "Optima": [
+    "Sedan"
+  ],
+  "Otro": [
+    "Coupe",
+    "Hatchback",
+    "Wagon",
+    "Sedan",
+    "SUV / Crossover",
+    "Pickup Truck",
+    "Convertible",
+    "Van",
+    "Minivan"
+  ],
+  "Outback": [
+    "SUV / Crossover",
+    "Wagon",
+    "Sedan"
+  ],
+  "Outlander": [
+    "SUV / Crossover"
+  ],
+  "Outlander Sport": [
+    "SUV / Crossover"
+  ],
+  "Pacifica": [
+    "Minivan",
+    "SUV / Crossover"
+  ],
+  "Palisade": [
+    "SUV / Crossover"
+  ],
+  "Passat": [
+    "Sedan",
+    "Wagon"
+  ],
+  "Passport": [
+    "SUV / Crossover"
+  ],
+  "Pathfinder": [
+    "SUV / Crossover"
+  ],
+  "Patriot": [
+    "SUV / Crossover"
+  ],
+  "Pilot": [
+    "SUV / Crossover"
+  ],
+  "Prius": [
+    "Hatchback",
+    "Sedan"
+  ],
+  "ProMaster": [
+    "Van"
+  ],
+  "ProMaster City": [
+    "Van"
+  ],
+  "Q3": [
+    "SUV / Crossover"
+  ],
+  "Q5": [
+    "SUV / Crossover"
+  ],
+  "Q50": [
+    "Sedan"
+  ],
+  "Q7": [
+    "SUV / Crossover"
+  ],
+  "QX50": [
+    "SUV / Crossover"
+  ],
+  "QX60": [
+    "SUV / Crossover"
+  ],
+  "QX80": [
+    "SUV / Crossover"
+  ],
+  "RAV4": [
+    "SUV / Crossover"
+  ],
+  "RAV4 Hybrid": [
+    "SUV / Crossover"
+  ],
+  "RDX": [
+    "SUV / Crossover"
+  ],
+  "RX": [
+    "SUV / Crossover"
+  ],
+  "RX 350": [
+    "SUV / Crossover"
+  ],
+  "Range Rover Evoque": [
+    "SUV / Crossover"
+  ],
+  "Range Rover Sport": [
+    "SUV / Crossover"
+  ],
+  "Ranger": [
+    "Pickup Truck"
+  ],
+  "Renegade": [
+    "SUV / Crossover"
+  ],
+  "Ridgeline": [
+    "Pickup Truck"
+  ],
+  "Rio": [
+    "Sedan"
+  ],
+  "Rogue": [
+    "SUV / Crossover"
+  ],
+  "Rogue Sport": [
+    "SUV / Crossover"
+  ],
+  "S60": [
+    "Sedan"
+  ],
+  "SRX": [
+    "SUV / Crossover"
+  ],
+  "Santa Fe": [
+    "SUV / Crossover"
+  ],
+  "Santa Fe Sport": [
+    "SUV / Crossover"
+  ],
+  "Sedona": [
+    "Minivan"
+  ],
+  "Seltos": [
+    "SUV / Crossover"
+  ],
+  "Sentra": [
+    "Sedan"
+  ],
+  "Sequoia": [
+    "SUV / Crossover"
+  ],
+  "Sienna": [
+    "Minivan"
+  ],
+  "Sierra 1500": [
+    "Pickup Truck"
+  ],
+  "Sierra 2500HD": [
+    "Pickup Truck"
+  ],
+  "Silverado 1500": [
+    "Pickup Truck"
+  ],
+  "Silverado 2500HD": [
+    "Pickup Truck"
+  ],
+  "Silverado 3500HD": [
+    "Pickup Truck"
+  ],
+  "Sonata": [
+    "Sedan"
+  ],
+  "Sonic": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "Sorento": [
+    "SUV / Crossover"
+  ],
+  "Soul": [
+    "SUV / Crossover",
+    "Wagon"
+  ],
+  "Spark": [
+    "Hatchback"
+  ],
+  "Sportage": [
+    "SUV / Crossover"
+  ],
+  "Sprinter": [
+    "Van"
+  ],
+  "Stelvio": [
+    "SUV / Crossover"
+  ],
+  "Suburban": [
+    "SUV / Crossover"
+  ],
+  "TLX": [
+    "Sedan"
+  ],
+  "Tacoma": [
+    "Pickup Truck"
+  ],
+  "Tahoe": [
+    "SUV / Crossover"
+  ],
+  "Taurus": [
+    "Sedan"
+  ],
+  "Telluride": [
+    "SUV / Crossover"
+  ],
+  "Terrain": [
+    "SUV / Crossover"
+  ],
+  "Tiguan": [
+    "SUV / Crossover"
+  ],
+  "Titan": [
+    "Pickup Truck"
+  ],
+  "Town & Country": [
+    "Minivan"
+  ],
+  "Trailblazer": [
+    "SUV / Crossover"
+  ],
+  "Transit Cargo": [
+    "Van"
+  ],
+  "Transit Connect": [
+    "Van"
+  ],
+  "Transit Passenger": [
+    "Van"
+  ],
+  "Traverse": [
+    "SUV / Crossover"
+  ],
+  "Trax": [
+    "SUV / Crossover"
+  ],
+  "Tucson": [
+    "SUV / Crossover"
+  ],
+  "Tundra": [
+    "Pickup Truck"
+  ],
+  "Venue": [
+    "SUV / Crossover"
+  ],
+  "Versa": [
+    "Sedan",
+    "Hatchback"
+  ],
+  "Volt": [
+    "Hatchback"
+  ],
+  "Wrangler": [
+    "SUV / Crossover"
+  ],
+  "Wrangler Unlimited": [
+    "SUV / Crossover"
+  ],
+  "X1": [
+    "SUV / Crossover"
+  ],
+  "X3": [
+    "SUV / Crossover"
+  ],
+  "X5": [
+    "SUV / Crossover"
+  ],
+  "XC40": [
+    "SUV / Crossover"
+  ],
+  "XC60": [
+    "SUV / Crossover"
+  ],
+  "XC90": [
+    "SUV / Crossover"
+  ],
+  "XT4": [
+    "SUV / Crossover"
+  ],
+  "XT5": [
+    "SUV / Crossover"
+  ],
+  "XT6": [
+    "SUV / Crossover"
+  ],
+  "XTS": [
+    "Sedan"
+  ],
+  "Yukon": [
+    "SUV / Crossover"
+  ],
+  "Yukon XL": [
+    "SUV / Crossover"
+  ]
+}
